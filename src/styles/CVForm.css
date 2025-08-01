@@ -1,0 +1,21 @@
+.cv-container {
+    width: 100%;
+    max-width: 900px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    margin: auto;
+}
+
+.cv-container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333333;
+}
+
+div, h1 {
+    cursor: default;
+}
