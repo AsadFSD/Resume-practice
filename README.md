@@ -8,17 +8,17 @@ A simple and interactive CV (Resume) builder built with **React** and **Vite**, 
 - Modern, clean and resposive design
 - Built with **React** & **Vite** for fast development and deployments
 
-  ## Technologies Used
+## Technologies Used
 
-  - React
-  - Vite
-  - CSS3
-  - Git & Github
+- React
+- Vite
+- CSS3
+- Git & Github
  
-    ## Getting Started
+## Getting Started
 
-    ### Clone The respository
-    ```Bash
-    git clone https://github.com/AsadFSD/Resume-practice.git
-    cd Resume-practice
+### Clone The respository
+```Bash
+git clone https://github.com/AsadFSD/Resume-practice.git
+cd Resume-practice
 
