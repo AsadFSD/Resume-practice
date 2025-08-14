@@ -1,4 +1,4 @@
-.education {
+.skills {
     margin-bottom: 40px;
     padding: 20px;
     background: #f9f9f9;
@@ -6,7 +6,7 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.education input {
+.skills input {
     width: 100%;
     padding: 14px;
     margin-bottom: 16px;
@@ -17,18 +17,18 @@
     transition: all 0.3s ease;
 }
 
-.education input:focus {
+.skills input:focus {
     border-color: #6366f1;
     box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
     outline: none;
 }
 
-.education ul {
+.skills ul {
     list-style: none;
     padding: 0;
 }
 
-.education li {
+.skills li {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,8 +69,4 @@
 .add-btn:hover {
     transform: translateY(-2px);
     background: linear-gradient(135deg, #4f46e5, #7c3aed);
-}
-
-.add-education input {
-    margin-bottom: 8px;
 }

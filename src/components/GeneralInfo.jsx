@@ -1,36 +1,56 @@
-import { useState } from "react";
-import '../styles/GeneralInfo.css';
+import { useState, forwardRef, useImperativeHandle } from "react";
+import "../styles/GeneralInfo.css";
 
-export default function GeneralInfo(){
-    const [info, setInfo] = useState({name: '', email: '', phone: ''});
-    const [isEditing, setIsEditing] = useState(true);
+const GeneralInfo = forwardRef((props, ref) => {
+    const [info, setInfo] = useState({
+        Name: "",
+        Email: "",
+        Phone: "",
+        Address: "",
+    });
+
+    useImperativeHandle(ref, () => ({
+        getInfo: () => info
+    }));
 
     const handleChange = (e) => {
-        const {name, value} = e.target;
-        setInfo({...info, [name]: value});
+        const { name, value } = e.target;
+        setInfo((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = ()  => setIsEditing(false);
-    const handleEdit = () => setIsEditing(true);
-
-    return(
+    return (
         <div className="general-info">
             <h2>General Information</h2>
-            {isEditing ?(
-                <>
-                <input name="name" value={info.name} onChange={handleChange} placeholder="Name"/>
-                <input name="email" value={info.email} onChange={handleChange} placeholder="Email"/>
-                <input name="phone" value={info.phone} onChange={handleChange} placeholder="Phone"/>
-                <button onClick={handleSubmit}>Submit</button>
-                </>
-            ):( 
-                <>
-                <p>Name: {info.name}</p>
-                <p>Email: {info.email}</p>
-                <p>Phone: {info.phone}</p>
-                <button onClick={handleEdit}>Edit</button>
-                </>
-            )}
+            <input
+                type="text"
+                name="Name"
+                value={info.Name}
+                onChange={handleChange}
+                placeholder="Full Name"
+            />
+            <input
+                type="email"
+                name="Email"
+                value={info.Email}
+                onChange={handleChange}
+                placeholder="Email"
+            />
+            <input
+                type="text"
+                name="Phone"
+                value={info.Phone}
+                onChange={handleChange}
+                placeholder="Phone Number"
+            />
+            <input
+                type="text"
+                name="Address"
+                value={info.Address}
+                onChange={handleChange}
+                placeholder="Address"
+            />
         </div>
-    )
-}
+    );
+});
+
+export default GeneralInfo;

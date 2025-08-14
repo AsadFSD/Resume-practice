@@ -23,7 +23,45 @@
     outline: none;
 }
 
-.experience button {
+.experience ul {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.experience-fields {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.remove-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.remove-btn:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+.add-btn {
     background: linear-gradient(135deg, #6366f1, #8b5cf6);
     color: white;
     padding: 12px 20px;
@@ -32,15 +70,10 @@
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.2s ease, background 0.3s ease;
+    margin-top: 10px;
 }
 
-.experience button:hover {
+.add-btn:hover {
     transform: translateY(-2px);
     background: linear-gradient(135deg, #4f46e5, #7c3aed);
-}
-
-.experience p {
-    font-size: 1.1rem;
-    color: #333;
-    margin: 8px 0;
 }

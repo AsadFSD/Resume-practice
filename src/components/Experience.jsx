@@ -1,47 +1,73 @@
-import { useState } from "react";
-import '../styles/Experience.css';
+import { useState, forwardRef, useImperativeHandle } from "react";
+import "../styles/Experience.css";
 
-export default function Experience(){
-    const [exp, setExp] = useState({
-        company: '',
-        position: '',
-        responsibilities : '',
-        from: '',
-        until: ''
-    });
+const Experience = forwardRef((props, ref) => {
+    const [experienceList, setExperienceList] = useState([
+        { role: "", company: "", year: "" },
+    ]);
 
-    const  [isEditing, setIsEditing] = useState(true);
+    useImperativeHandle(ref, () => ({
+        getExperience: () => experienceList,
+    }));
 
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setExp({...exp, [name]: value});
+    const handleChange = (index, field, value) => {
+        const newList = [...experienceList];
+        newList[index][field] = value;
+        setExperienceList(newList);
     };
 
-    const handleSubmit= () => setIsEditing(false);
-    const handleEdit= () => setIsEditing(true);
+    const addExperience = () => {
+        setExperienceList([...experienceList, { role: "", company: "", year: "" }]);
+    };
 
-    return(
+    const removeExperience = (index) => {
+        setExperienceList(experienceList.filter((_, i) => i !== index));
+    };
+
+    const handleKeyPress = (e, index, field) => {
+        if (e.key === "Enter") {
+            if (field === "year" && index === experienceList.length - 1) {
+                addExperience();
+            }
+        }
+    };
+
+    return (
         <div className="experience">
             <h2>Experience</h2>
-            {isEditing ? (
-                <>
-                <input name="company" value={exp.company} onChange={handleChange} placeholder="Company"/>
-                <input name="position" value={exp.position} onChange={handleChange} placeholder="Position"/>
-                <input name="responsibilities" value={exp.responsibilities} onChange={handleChange} placeholder="Main Responsibilities"/>
-                <input name="from" value={exp.from} onChange={handleChange} placeholder="From (Date)"/>
-                <input name="until" value={exp.until} onChange={handleChange} placeholder="Until (Date)"/>
-                <button onClick={handleSubmit}>Submit</button>
-                </>
-            ):(
-                <>
-                <p>Company: {exp.company}</p>
-                <p>Position: {exp.position}</p>
-                <p>Responsibilities: {exp.responsibilities}</p>
-                <p>From: {exp.from}</p>
-                <p>Until: {exp.until}</p>
-                <button onClick={handleEdit}>Edit</button>
-                </>
-            )}
+            <ul>
+                {experienceList.map((exp, index) => (
+                    <li key={index} className="experience-entry">
+                        <div className="experience-fields">
+                            <input
+                                type="text"
+                                value={exp.role}
+                                onChange={(e) => handleChange(index, "role", e.target.value)}
+                                placeholder="Role"
+                                onKeyPress={(e) => handleKeyPress(e, index, "role")}
+                            />
+                            <input
+                                type="text"
+                                value={exp.company}
+                                onChange={(e) => handleChange(index, "company", e.target.value)}
+                                placeholder="Company"
+                                onKeyPress={(e) => handleKeyPress(e, index, "company")}
+                            />
+                            <input
+                                type="text"
+                                value={exp.year}
+                                onChange={(e) => handleChange(index, "year", e.target.value)}
+                                placeholder="Year"
+                                onKeyPress={(e) => handleKeyPress(e, index, "year")}
+                            />
+                        </div>
+                        <button className="remove-btn" onClick={() => removeExperience(index)}>✕</button>
+                    </li>
+                ))}
+            </ul>
+            <button className="add-btn" onClick={addExperience}>Add Experience</button>
         </div>
     );
-}
+});
+
+export default Experience;

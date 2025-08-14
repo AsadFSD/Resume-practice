@@ -1,4 +1,4 @@
-.education {
+.profile-summary {
     margin-bottom: 40px;
     padding: 20px;
     background: #f9f9f9;
@@ -6,56 +6,26 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.education input {
+.profile-summary textarea {
     width: 100%;
     padding: 14px;
-    margin-bottom: 16px;
     border: 1px solid #ddd;
     border-radius: 10px;
     font-size: 1rem;
     background: #fff;
+    resize: vertical;
+    min-height: 120px;
     transition: all 0.3s ease;
+    margin-bottom: 16px;
 }
 
-.education input:focus {
+.profile-summary textarea:focus {
     border-color: #6366f1;
     box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
     outline: none;
 }
 
-.education ul {
-    list-style: none;
-    padding: 0;
-}
-
-.education li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-    padding: 10px 14px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-}
-
-.remove-btn {
-    background: #ef4444;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 4px 8px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.remove-btn:hover {
-    background: #dc2626;
-    transform: translateY(-1px);
-}
-
-.add-btn {
+.save-btn {
     background: linear-gradient(135deg, #6366f1, #8b5cf6);
     color: white;
     padding: 12px 20px;
@@ -66,11 +36,7 @@
     transition: transform 0.2s ease, background 0.3s ease;
 }
 
-.add-btn:hover {
+.save-btn:hover {
     transform: translateY(-2px);
     background: linear-gradient(135deg, #4f46e5, #7c3aed);
-}
-
-.add-education input {
-    margin-bottom: 8px;
 }
